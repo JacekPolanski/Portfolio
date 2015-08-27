@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Jacek Polański</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {% load staticfiles %}
+
+		<!--[if lte IE 8]><script src="{% static 'app/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'app/css/main.css' %}" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
+	</head>
+    <body>
+        <!-- Header -->
+			<section id="header">
+				<header>
+					<h1>{{ contact.first_name }} {{ contact.last_name }}</h1>
+					<p>{{ contact.profession }}</p>
+				</header>
+				<footer>
+					<a href="#banner" class="button style2 scrolly-middle">O mnie</a>
+				</footer>
+			</section>
+    </body>
+</html>
