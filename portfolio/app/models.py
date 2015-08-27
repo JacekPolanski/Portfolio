@@ -33,6 +33,7 @@ class Contact(models.Model):
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
     postal_code = models.CharField(max_length=8)
+    profession = models.CharField(max_length=100)
 
 
 class Community(models.Model):
