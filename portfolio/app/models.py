@@ -16,7 +16,7 @@ class Project(models.Model):
     participate_from = models.DateField()
     participate_to = models.DateField()
     url = models.URLField()
-    thumb_url = models.FilePathField()
+    thumb_url = models.FileField()
 
 
 class Skill(models.Model):
