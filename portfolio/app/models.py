@@ -6,6 +6,9 @@ class AboutMe(models.Model):
     date_added = models.DateTimeField()
     description = models.CharField(max_length=500)
 
+    class Meta:
+        verbose_name_plural = 'About me'
+
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
@@ -35,3 +38,6 @@ class Contact(models.Model):
 class Community(models.Model):
     title = models.CharField(max_length=100)
     url = models.URLField()
+
+    class Meta:
+        verbose_name_plural = 'Communities'
