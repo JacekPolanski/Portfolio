@@ -64,7 +64,6 @@
                                             src="{{ project.thumb.url }}"
                                             alt="{{ project.title }}"
                                             title="{{ project.title }}"
-                                            height="200"
                                             />
                                 </a>
                             </div>
@@ -86,7 +85,6 @@
                                             src="{{ project.thumb.url }}"
                                             alt="{{ project.title }}"
                                             title="{{ project.title }}"
-                                            height="200"
                                             />
                                 </a>
                             </div>
@@ -94,6 +92,37 @@
 					</div>
 				</div>
 			</article>
+
+        <!-- Contact -->
+			<article class="container box style3">
+				<header>
+					<h2>Zostaw mi wiadomość</h2>
+				</header>
+				<form method="post" action="#" id="contact_form">
+					<div class="row 50%">
+						<div class="6u 12u$(mobile)"><input type="text" class="text" name="name" placeholder="Name" /></div>
+						<div class="6u$ 12u$(mobile)"><input type="text" class="text" name="email" placeholder="Email" /></div>
+						<div class="12u$">
+							<textarea name="message" placeholder="Message"></textarea>
+						</div>
+                        {% csrf_token %}
+						<div class="12u$">
+							<ul class="actions">
+								<li><input type="submit" value="Wyślij wiadomość" /></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</article>
+
+        <!-- Scripts -->
+			<script src="{% static 'app/js/jquery.min.js' %}"></script>
+			<script src="{% static 'app/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'app/js/jquery.poptrox.min.js' %}"></script>
+			<script src="{% static 'app/js/skel.min.js' %}"></script>
+			<script src="{% static 'app/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="{% static 'app/js/ie/respond.min.js' %}"></script><![endif]-->
+			<script src="{% static 'app/js/main.js' %}"></script>
 
     </body>
 </html>

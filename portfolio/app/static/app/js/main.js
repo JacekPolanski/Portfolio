@@ -157,6 +157,20 @@
 				usePopupNav: true
 			});
 
+		$('#contact_form').submit(function(event){
+		    event.preventDefault();
+		    send_contact_form();
+		})
+
+        function send_contact_form() {
+            $.post('email/', $('#contact_form').serialize(), function() {
+                alert("Wysłano email");
+            })
+            .fail(function() {
+                alert("Nie udało się wysłać");
+            });
+        }
+
 	});
 
 })(jQuery);

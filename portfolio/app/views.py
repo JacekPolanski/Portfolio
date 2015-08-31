@@ -1,6 +1,11 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.views.generic import View
+from django.http import HttpResponse
+from django.core.mail import send_mail
 from .models import Contact, AboutMe, Skill, Project
+from .forms import ContactForm
+
+import json
 
 
 class IndexView(View):
@@ -20,3 +25,34 @@ class IndexView(View):
         }
 
         return render(request, 'app/index.html', template_data)
+
+
+def email(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email_address = request.POST.get('email')
+        message = request.POST.get('message')
+
+        send_mail(
+            'Nowa wiadomość od '+name,
+            message,
+            email_address,
+            ['jacek.polanski.91@gmail.com'],
+            fail_silently=False
+        )
+
+        return HttpResponse(
+            json.dumps({
+                'result': 'Success',
+                'name': name,
+                'email': email_address,
+                'message': message,
+            }),
+            content_type="application/json"
+        )
+    else:
+        return HttpResponse(
+            json.dumps({'result': 'error'}),
+            content_type="application/json"
+        )
+
