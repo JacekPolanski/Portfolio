@@ -115,6 +115,23 @@
 				</form>
 			</article>
 
+        <section id="footer">
+			<ul class="icons">
+                {% for community in communities %}
+                    <li>
+                        <a href="{{ community.url }}" class="icon fa-{{ community.title|lower }}">
+                            <span class="label">{{ community.title }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+			</ul>
+			<div class="copyright">
+				<ul class="menu">
+					<li>&copy; Jacek Polański. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+
         <!-- Scripts -->
 			<script src="{% static 'app/js/jquery.min.js' %}"></script>
 			<script src="{% static 'app/js/jquery.scrolly.min.js' %}"></script>
