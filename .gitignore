@@ -1,4 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 /portfolio/media/projects
 /portfolio/media
+/portfolio/portfolio/settings/database.py
+/portfolio/portfolio/settings/email.py
+/portfolio/portfolio/settings/secret.py
 .idea
