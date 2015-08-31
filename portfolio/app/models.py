@@ -1,4 +1,6 @@
 from django.db import models
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
 
 class AboutMe(models.Model):
@@ -16,7 +18,7 @@ class Project(models.Model):
     participate_from = models.DateField()
     participate_to = models.DateField()
     url = models.URLField()
-    thumb_url = models.FileField()
+    thumb_url = models.ImageField(upload_to='projects/')
 
 
 class Skill(models.Model):
