@@ -40,7 +40,7 @@
                     id="first"
                     class="container box style1 {% if forloop.counter|divisibleby:2 %}left{% else %}right{% endif %}"
                     >
-                    <a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
+                    <a href="#" class="image fit"><img src="{% static 'app/images/pic01.jpg' %}" alt="" /></a>
                     <div class="inner">
                         <header>
                             <h2>{{ skill.title }}</h2>
@@ -49,6 +49,51 @@
                     </div>
                 </article>
         {% endfor %}
+
+        <!-- Portfolio -->
+			<article class="container box style2">
+				<header>
+					<h2>Moje projekty</h2>
+				</header>
+				<div class="inner gallery">
+					<div class="row 0%">
+                        {% for project in owned_projects %}
+                            <div class="3u 12u(mobile)">
+                                <a href="{{ project.url }}" class="image fit">
+                                    <img
+                                            src="{{ project.thumb.url }}"
+                                            alt="{{ project.title }}"
+                                            title="{{ project.title }}"
+                                            height="200"
+                                            />
+                                </a>
+                            </div>
+                        {% endfor %}
+					</div>
+				</div>
+			</article>
+
+            <article class="container box style2">
+				<header>
+					<h2>Projekty, w których brałem udział</h2>
+				</header>
+				<div class="inner gallery">
+					<div class="row 0%">
+                        {% for project in not_owned_projects %}
+                            <div class="3u 12u(mobile)">
+                                <a href="{{ project.url }}" class="image fit">
+                                    <img
+                                            src="{{ project.thumb.url }}"
+                                            alt="{{ project.title }}"
+                                            title="{{ project.title }}"
+                                            height="200"
+                                            />
+                                </a>
+                            </div>
+                        {% endfor %}
+					</div>
+				</div>
+			</article>
 
     </body>
 </html>
