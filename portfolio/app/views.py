@@ -10,8 +10,8 @@ def index(request):
     contact = get_object_or_404(Contact)
     about_me = get_object_or_404(AboutMe)
     skills = get_list_or_404(Skill)
-    not_owned_projects = get_list_or_404(Project.objects.filter(is_owner=False))
-    owned_projects = get_list_or_404(Project.objects.filter(is_owner=True))
+    not_owned_projects = get_list_or_404(Project.objects.filter(is_owner=False))  # ToDo: 404 out
+    owned_projects = get_list_or_404(Project.objects.filter(is_owner=True))  # ToDo: 404 out
     communities = get_list_or_404(Community)
 
     template_data = {
