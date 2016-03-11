@@ -13,133 +13,136 @@
 	</head>
     <body>
         <!-- Header -->
-			<section id="header">
-				<header>
-					<h1>{{ contact.first_name }} {{ contact.last_name }}</h1>
-					<p>{{ contact.profession }}</p>
-				</header>
-				<footer>
-					<a href="#banner" class="button style2 scrolly-middle">O mnie</a>
-				</footer>
-			</section>
+        <section id="header">
+            <header>
+                <h1>{{ contact.first_name }} {{ contact.last_name }}</h1>
+                <p>{{ contact.profession }}</p>
+            </header>
+            <footer>
+                <a href="#banner" class="button style2 scrolly-middle">O mnie</a>
+            </footer>
+        </section>
 
         <!-- Banner -->
-			<section id="banner">
-				<header>
-					<h2>{{ about_me.title }}</h2>
-				</header>
-				<p>{{ about_me.description }}</p>
-				<footer>
-					<a href="#first" class="button style2 scrolly">Umiejętności</a>
-				</footer>
-			</section>
+        <section id="banner">
+            <header>
+                <h2>{{ about_me.title }}</h2>
+            </header>
+            <p>{{ about_me.description }}</p>
+            <footer>
+                <a href="#first" class="button style2 scrolly">Umiejętności</a>
+            </footer>
+        </section>
 
         {% for skill in skills %}
-            <!-- Feature 1 -->
-                <article
-                    id="first"
-                    class="container box style1 {% if forloop.counter|divisibleby:2 %}left{% else %}right{% endif %}"
-                    >
-                    <a href="#" class="image fit"><img src="{% static 'app/images/pic01.jpg' %}" alt="" /></a>
-                    <div class="inner">
-                        <header>
-                            <h2>{{ skill.title }}</h2>
-                        </header>
-                        <p>{{ skill.description }}</p>
-                    </div>
-                </article>
+        <!-- Feature 1 -->
+        <article
+                id="first"
+                class="container box style1 {% if forloop.counter|divisibleby:2 %}left{% else %}right{% endif %}"
+        >
+            <a href="#" class="image fit"><img src="{% static 'app/images/pic01.jpg' %}" alt=""/></a>
+            <div class="inner">
+                <header>
+                    <h2>{{ skill.title }}</h2>
+                </header>
+                <p>{{ skill.description }}</p>
+            </div>
+        </article>
         {% endfor %}
 
         <!-- Portfolio -->
-			<article class="container box style2">
-				<header>
-					<h2>Moje projekty</h2>
-				</header>
-				<div class="inner gallery">
-					<div class="row 0%">
-                        {% for project in owned_projects %}
-                            <div class="3u 12u(mobile)">
-                                <a href="{{ project.url }}" class="image fit">
-                                    <img
-                                            src="{{ project.thumb.url }}"
-                                            alt="{{ project.title }}"
-                                            title="{{ project.title }}"
-                                            />
-                                </a>
-                            </div>
-                        {% endfor %}
-					</div>
-				</div>
-			</article>
+        <article class="container box style2">
+            <header>
+                <h2>Moje projekty</h2>
+            </header>
+            <div class="inner gallery">
+                <div class="row 0%">
+                    {% for project in owned_projects %}
+                    <div class="3u 12u(mobile)">
+                        <a href="{{ project.url }}" class="image fit">
+                            <img
+                                src="{{ project.thumb.url }}"
+                                alt="{{ project.title }}"
+                                title="{{ project.title }}"
+                            />
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </article>
 
-            <article class="container box style2">
-				<header>
-					<h2>Projekty, w których brałem udział</h2>
-				</header>
-				<div class="inner gallery">
-					<div class="row 0%">
-                        {% for project in not_owned_projects %}
-                            <div class="3u 12u(mobile)">
-                                <a href="{{ project.url }}" class="image fit">
-                                    <img
-                                            src="{{ project.thumb.url }}"
-                                            alt="{{ project.title }}"
-                                            title="{{ project.title }}"
-                                            />
-                                </a>
-                            </div>
-                        {% endfor %}
-					</div>
-				</div>
-			</article>
+        <article class="container box style2">
+            <header>
+                <h2>Projekty, w których brałem udział</h2>
+            </header>
+            <div class="inner gallery">
+                <div class="row 0%">
+                    {% for project in not_owned_projects %}
+                    <div class="3u 12u(mobile)">
+                        <a href="{{ project.url }}" class="image fit">
+                            <img
+                                src="{{ project.thumb.url }}"
+                                alt="{{ project.title }}"
+                                title="{{ project.title }}"
+                            />
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </article>
 
         <!-- Contact -->
-			<article class="container box style3">
-				<header>
-					<h2>Zostaw mi wiadomość</h2>
-				</header>
-				<form method="post" action="#" id="contact_form">
-					<div class="row 50%">
-						<div class="6u 12u$(mobile)"><input type="text" class="text" name="name" placeholder="Name" /></div>
-						<div class="6u$ 12u$(mobile)"><input type="text" class="text" name="email" placeholder="Email" /></div>
-						<div class="12u$">
-							<textarea name="message" placeholder="Message"></textarea>
-						</div>
-                        {% csrf_token %}
-						<div class="12u$">
-							<ul class="actions">
-								<li><input type="submit" value="Wyślij wiadomość" /></li>
-							</ul>
-						</div>
-					</div>
-				</form>
-			</article>
+        <article class="container box style3">
+            <header>
+                <h2>Zostaw mi wiadomość</h2>
+            </header>
+            <form method="post" action="#" id="contact_form">
+                <div class="row 50%">
+                    <div class="6u 12u$(mobile)"><input type="text" class="text" name="name" placeholder="Name"/></div>
+                    <div class="6u$ 12u$(mobile)"><input type="text" class="text" name="email" placeholder="Email"/>
+                    </div>
+                    <div class="12u$">
+                        <textarea name="message" placeholder="Message"></textarea>
+                    </div>
+                    {% csrf_token %}
+                    <div class="12u$">
+                        <ul class="actions">
+                            <li><input type="submit" value="Wyślij wiadomość"/></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </article>
 
         <section id="footer">
-			<ul class="icons">
+            <ul class="icons">
                 {% for community in communities %}
-                    <li>
-                        <a href="{{ community.url }}" class="icon fa-{{ community.title|lower }}">
-                            <span class="label">{{ community.title }}</span>
-                        </a>
-                    </li>
+                <li>
+                    <a href="{{ community.url }}" class="icon fa-{{ community.title|lower }}">
+                        <span class="label">{{ community.title }}</span>
+                    </a>
+                </li>
                 {% endfor %}
-			</ul>
-			<div class="copyright">
-				<ul class="menu">
-					<li>&copy; Jacek Polański. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</div>
-		</section>
+            </ul>
+            <div class="copyright">
+                <ul class="menu">
+                    <li>&copy; Jacek Polański. All rights reserved.</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </section>
 
         <!-- Scripts -->
-			<script src="{% static 'app/js/jquery.min.js' %}"></script>
-			<script src="{% static 'app/js/jquery.scrolly.min.js' %}"></script>
-			<script src="{% static 'app/js/jquery.poptrox.min.js' %}"></script>
-			<script src="{% static 'app/js/skel.min.js' %}"></script>
-			<script src="{% static 'app/js/util.js' %}"></script>
-			<!--[if lte IE 8]><script src="{% static 'app/js/ie/respond.min.js' %}"></script><![endif]-->
-			<script src="{% static 'app/js/main.js' %}"></script>
+        <script src="{% static 'app/js/jquery.min.js' %}"></script>
+        <script src="{% static 'app/js/jquery.scrolly.min.js' %}"></script>
+        <script src="{% static 'app/js/jquery.poptrox.min.js' %}"></script>
+        <script src="{% static 'app/js/skel.min.js' %}"></script>
+        <script src="{% static 'app/js/util.js' %}"></script>
+        <!--[if lte IE 8]>
+        <script src="{% static 'app/js/ie/respond.min.js' %}"></script><![endif]-->
+        <script src="{% static 'app/js/main.js' %}"></script>
 
     </body>
 </html>
