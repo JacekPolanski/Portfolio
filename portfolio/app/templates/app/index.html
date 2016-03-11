@@ -55,15 +55,16 @@
             <header>
                 <h2>Moje projekty</h2>
             </header>
-            <div class="inner gallery">
+            <div class="inner">
                 <div class="row 0%">
                     {% for project in owned_projects %}
                     <div class="3u 12u(mobile)">
-                        <a href="{{ project.url }}" class="image fit">
+                        <a href="{{ project.url }}" class="image fit" rel="external nofollow" target="_blank">
                             <img
                                 src="{{ project.thumb.url }}"
                                 alt="{{ project.title }}"
                                 title="{{ project.title }}"
+                                height="150"
                             />
                         </a>
                     </div>
@@ -76,15 +77,16 @@
             <header>
                 <h2>Projekty, w których brałem udział</h2>
             </header>
-            <div class="inner gallery">
+            <div class="inner">
                 <div class="row 0%">
                     {% for project in not_owned_projects %}
                     <div class="3u 12u(mobile)">
-                        <a href="{{ project.url }}" class="image fit">
+                        <a href="{{ project.url }}" class="image fit" rel="external nofollow" target="_blank">
                             <img
                                 src="{{ project.thumb.url }}"
                                 alt="{{ project.title }}"
                                 title="{{ project.title }}"
+                                height="150"
                             />
                         </a>
                     </div>
